@@ -1,0 +1,4 @@
+# Default initial positions for stretch_description's ros2_control fake system
+
+initial_positions:
+  world_joint: 0

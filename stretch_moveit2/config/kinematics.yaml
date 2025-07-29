@@ -1,0 +1,26 @@
+/**:
+    ros__parameters:
+        robot_description_kinematics:
+            stretch_arm:
+              kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+              kinematics_solver_search_resolution: 0.005
+              kinematics_solver_timeout: 0.005
+            mobile_base_arm:
+              kinematics_solver: stretch_kinematics_plugin/StretchKinematicsPlugin
+              #kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+              kinematics_solver_search_resolution: 0.005
+              kinematics_solver_timeout: 0.1
+            stretch_head:
+              kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+              kinematics_solver_search_resolution: 0.005
+              kinematics_solver_timeout: 0.1
+            #mobile_base:
+            #  kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+            #  kinematics_solver_search_resolution: 0.005
+            #  kinematics_solver_timeout: 0.1
+            #mobile_base:
+            #  kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+            #  joint_limits:
+            #    position/x:   {min_position: -5.0, max_position: 5.0}
+            #    position/y:   {min_position: -5.0, max_position: 5.0}
+            #    position/theta: {min_position: -3.15, max_position: 3.15}

@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: stretch_description
+    relative_path: urdf/exported_urdf/stretch.urdf
+  srdf:
+    relative_path: config/stretch_description.srdf
+  package_settings:
+    author_name: Hao Lu
+    author_email: hao.lu@anu.edu.au
+    generated_timestamp: 1753617509
