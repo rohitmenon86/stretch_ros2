@@ -157,10 +157,10 @@ def generate_launch_description():
     )
     #ld.add_action(bridge)
 
-    movegroup_test_py = PythonLaunchDescriptionSource(str(moveit_config_path / 'launch/movegroup_test.launch.py'))
-    movegroup_test = IncludeLaunchDescription(movegroup_test_py,
+    stretch_demo_py = PythonLaunchDescriptionSource(str(moveit_config_path / 'launch/stretch_demo.launch.py'))
+    stretch_demo = IncludeLaunchDescription(stretch_demo_py,
                                                  launch_arguments=move_group_launch_args.items())
-    #ld.add_action(movegroup_test)
+    ld.add_action(stretch_demo)
 
 
     return ld
