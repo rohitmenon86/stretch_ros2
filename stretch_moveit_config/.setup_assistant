@@ -5,9 +5,9 @@ moveit_setup_assistant_config:
   srdf:
     relative_path: config/stretch.srdf
   package_settings:
-    author_name: gokul chenchani
+    author_name: Gokul Chenchani
     author_email: gchencha@uni-bonn.de
-    generated_timestamp: 1755868122
+    generated_timestamp: 1756242720
   control_xacro:
     command:
       - position

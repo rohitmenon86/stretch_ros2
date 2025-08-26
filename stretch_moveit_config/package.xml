@@ -6,7 +6,7 @@
   <description>
      An automatically generated package with all the configuration and launch files for using the stretch with the MoveIt Motion Planning Framework
   </description>
-  <maintainer email="gchencha@uni-bonn.de">gokul chenchani</maintainer>
+  <maintainer email="gchencha@uni-bonn.de">Gokul Chenchani</maintainer>
 
   <license>BSD-3-Clause</license>
 
@@ -14,7 +14,7 @@
   <url type="bugtracker">https://github.com/moveit/moveit2/issues</url>
   <url type="repository">https://github.com/moveit/moveit2</url>
 
-  <author email="gchencha@uni-bonn.de">gokul chenchani</author>
+  <author email="gchencha@uni-bonn.de">Gokul Chenchani</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

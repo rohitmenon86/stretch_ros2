@@ -15,7 +15,7 @@ def generate_launch_description():
 
     # MoveIt! configuration builder
     moveit_config = (
-        MoveItConfigsBuilder("stretch")
+        MoveItConfigsBuilder("stretch", package_name="stretch_moveit_config")
         .robot_description(file_path="config/stretch.urdf.xacro")
         .robot_description_semantic(file_path="config/stretch.srdf")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")  # Reference the MoveIt controller YAML
@@ -75,10 +75,22 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
-    stretch_controller_spawner = Node(
+    stretch_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["stretch_arm_controller", "--controller-manager", "/controller_manager"],
+    )
+
+    stretch_camera_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["stretch_camera_controller", "--controller-manager", "/controller_manager"],
+    )
+
+    stretch_gripper_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["stretch_gripper_controller", "--controller-manager", "/controller_manager"],
     )
 
     # Database server node if required
@@ -113,6 +125,8 @@ def generate_launch_description():
             ros2_control_node,
             mongodb_server_node,
             joint_state_broadcaster_spawner,
-            stretch_controller_spawner,
+            stretch_arm_controller_spawner,
+            stretch_camera_controller_spawner,
+            stretch_gripper_controller_spawner,
         ]
     )

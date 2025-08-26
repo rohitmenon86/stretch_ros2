@@ -64,21 +64,7 @@
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-            <!-- <joint name="joint_gripper_finger_left">
-                <command_interface name="position"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['joint_gripper_finger_left']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-            </joint>
-            <joint name="joint_gripper_finger_right">
-                <command_interface name="position"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['joint_gripper_finger_right']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-            </joint> -->
-            <!-- <joint name="joint_head_pan">
+            <joint name="joint_head_pan">
                 <command_interface name="position"/>
                 <state_interface name="position">
                   <param name="initial_value">${initial_positions['joint_head_pan']}</param>
@@ -91,7 +77,21 @@
                   <param name="initial_value">${initial_positions['joint_head_tilt']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
-            </joint> -->
+            </joint>
+            <joint name="joint_gripper_finger_left">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint_gripper_finger_left']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint_gripper_finger_right">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint_gripper_finger_right']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
 
         </ros2_control>
     </xacro:macro>

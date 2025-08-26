@@ -5,11 +5,13 @@ moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControll
 moveit_simple_controller_manager:
   controller_names:
     - stretch_arm_controller
-    # - hand_controller
-    # - camera_controller
+    - stretch_camera_controller
+    - stretch_gripper_controller
 
   stretch_arm_controller:
     type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
     joints:
       - joint_lift
       - joint_arm_l3
@@ -19,15 +21,19 @@ moveit_simple_controller_manager:
       - joint_wrist_yaw
       - joint_wrist_pitch
       - joint_wrist_roll
-  # hand_controller:
-  #   type: GripperCommand
-  #   joints:
-  #     - joint_gripper_finger_left
-  #     - joint_gripper_finger_right
-  #   action_ns: gripper_cmd
-  #   default: true
-  # camera_controller:
-  #   type: FollowJointTrajectory
-  #   joints:
-  #     - joint_head_pan
-  #     - joint_head_tilt
+  stretch_camera_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_head_pan
+      - joint_head_tilt
+  stretch_gripper_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_gripper_finger_left
+      - joint_gripper_finger_right

@@ -7,12 +7,12 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    # hand_controller:
-    #   type: position_controllers/GripperActionController
+    stretch_camera_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
 
-    # camera_controller:
-    #   type: joint_trajectory_controller/JointTrajectoryController
+    stretch_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
 
     joint_state_broadcaster:
@@ -35,17 +35,25 @@ stretch_arm_controller:
       - position
       - velocity
     allow_nonzero_velocity_at_trajectory_end: true
-# hand_controller:
-#   ros__parameters:
-#     joint: joint_gripper_finger_left
-# camera_controller:
-#   ros__parameters:
-#     joints:
-#       - joint_head_pan
-#       - joint_head_tilt
-#     command_interfaces:
-#       - position
-#     state_interfaces:
-#       - position
-#       - velocity
-#     allow_nonzero_velocity_at_trajectory_end: true
+stretch_camera_controller:
+  ros__parameters:
+    joints:
+      - joint_head_pan
+      - joint_head_tilt
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+stretch_gripper_controller:
+  ros__parameters:
+    joints:
+      - joint_gripper_finger_left
+      - joint_gripper_finger_right
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
