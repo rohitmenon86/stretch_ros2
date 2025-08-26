@@ -1,10 +1,25 @@
 moveit_setup_assistant_config:
   urdf:
     package: stretch_description
-    relative_path: urdf/exported_urdf/stretch.urdf
+    relative_path: urdf/stretch.urdf
   srdf:
-    relative_path: config/stretch_description.srdf
+    relative_path: config/stretch.srdf
   package_settings:
-    author_name: Hao Lu
-    author_email: hao.lu@anu.edu.au
-    generated_timestamp: 1753617509
+    author_name: gokul chenchani
+    author_email: gchencha@uni-bonn.de
+    generated_timestamp: 1755868122
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
