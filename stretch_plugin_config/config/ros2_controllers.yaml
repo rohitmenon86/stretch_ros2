@@ -3,65 +3,23 @@ controller_manager:
   ros__parameters:
     update_rate: 100  # Hz
 
-    stretch_controller:
+    stretch_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-    # stretch_arm_controller:
-    #   type: joint_trajectory_controller/JointTrajectoryController
+    stretch_base_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
+    stretch_head_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
-    # stretch_base_controller:
-    #   type: joint_trajectory_controller/JointTrajectoryController
-
-
-    # stretch_base_arm_controller:
-    #   type: joint_trajectory_controller/JointTrajectoryController
-
+    stretch_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-# stretch_arm_controller:
-#   ros__parameters:
-#     joints:
-#       - joint_lift
-#       - joint_arm_l3
-#       - joint_arm_l2
-#       - joint_arm_l1
-#       - joint_arm_l0
-#       - joint_wrist_yaw
-#       - joint_wrist_pitch
-#       - joint_wrist_roll
-#     command_interfaces:
-#       - position
-#     state_interfaces:
-#       - position
-#       - velocity
-#     allow_nonzero_velocity_at_trajectory_end: true
-# stretch_base_controller:
-#   ros__parameters:
-#     joints:
-#       - joint_left_wheel
-#       - joint_right_wheel
-#     command_interfaces:
-#       - position
-#     state_interfaces:
-#       - position
-#       - velocity
-#     allow_nonzero_velocity_at_trajectory_end: true
-# stretch_base_arm_controller:
-#   ros__parameters:
-#     joints:
-#       - joint_left_wheel
-#       - joint_right_wheel
-#     command_interfaces:
-#       - position
-#     state_interfaces:
-#       - position
-#       - velocity
-#     allow_nonzero_velocity_at_trajectory_end: true
-
-stretch_controller:
+# ARM CONTROLLER
+stretch_arm_controller:
   ros__parameters:
     joints:
       - joint_lift
@@ -72,8 +30,45 @@ stretch_controller:
       - joint_wrist_yaw
       - joint_wrist_pitch
       - joint_wrist_roll
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+
+# BASE CONTROLLER
+stretch_base_controller:
+  ros__parameters:
+    joints:
       - joint_left_wheel
       - joint_right_wheel
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+
+# HEAD CAMERA CONTROLLER
+stretch_head_controller:
+  ros__parameters:
+    joints:
+      - joint_head_pan
+      - joint_head_tilt
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+
+# GRIPPER CONTROLLER
+stretch_gripper_controller:
+  ros__parameters:
+    joints:
+      - joint_gripper_finger_left
+      - joint_gripper_finger_right
     command_interfaces:
       - position
     state_interfaces:

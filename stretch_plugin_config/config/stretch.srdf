@@ -23,9 +23,19 @@
         <joint name="joint_left_wheel"/>
         <joint name="joint_right_wheel"/>
     </group>
+    <group name="stretch_head">
+        <joint name="joint_head_pan"/>
+        <joint name="joint_head_tilt"/>
+    </group>
+    <group name="stretch_gripper">
+        <joint name="joint_gripper_finger_left"/>
+        <joint name="joint_gripper_finger_right"/>
+    </group>
     <group name="stretch_base_arm">
         <group name="stretch_arm"/>
         <group name="stretch_base"/>
+        <group name="stretch_head"/>
+        <group name="stretch_gripper"/>
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="up" group="stretch_arm">
@@ -48,6 +58,26 @@
         <joint name="joint_wrist_roll" value="0"/>
         <joint name="joint_wrist_yaw" value="0"/>
     </group_state>
+    <group_state name="up_and_stretch" group="stretch_arm">
+        <joint name="joint_arm_l0" value="0.13"/>
+        <joint name="joint_arm_l1" value="0.13"/>
+        <joint name="joint_arm_l2" value="0.13"/>
+        <joint name="joint_arm_l3" value="0.13"/>
+        <joint name="joint_lift" value="0.4619"/>
+        <joint name="joint_wrist_pitch" value="0"/>
+        <joint name="joint_wrist_roll" value="0"/>
+        <joint name="joint_wrist_yaw" value="0"/>
+    </group_state>
+    <group_state name="stretch_rotate" group="stretch_arm">
+        <joint name="joint_arm_l0" value="0.13"/>
+        <joint name="joint_arm_l1" value="0.13"/>
+        <joint name="joint_arm_l2" value="0.13"/>
+        <joint name="joint_arm_l3" value="0.13"/>
+        <joint name="joint_lift" value="0.4619"/>
+        <joint name="joint_wrist_pitch" value="-0.1461"/>
+        <joint name="joint_wrist_roll" value="0.2949"/>
+        <joint name="joint_wrist_yaw" value="0.5691"/>
+    </group_state>
     <group_state name="home" group="stretch_base">
         <joint name="joint_left_wheel" value="0"/>
         <joint name="joint_right_wheel" value="0"/>
@@ -60,7 +90,24 @@
         <joint name="joint_left_wheel" value="-2.5167"/>
         <joint name="joint_right_wheel" value="-2.5167"/>
     </group_state>
-    <group_state name="test" group="stretch_base_arm">
+    <group_state name="pan" group="stretch_head">
+        <joint name="joint_head_pan" value="0.3663"/>
+        <joint name="joint_head_tilt" value="0"/>
+    </group_state>
+    <group_state name="tilt" group="stretch_head">
+        <joint name="joint_head_pan" value="0"/>
+        <joint name="joint_head_tilt" value="-0.5815"/>
+    </group_state>
+    <group_state name="open" group="stretch_gripper">
+        <joint name="joint_gripper_finger_left" value="0.5967"/>
+        <joint name="joint_gripper_finger_right" value="0.6541"/>
+    </group_state>
+    <group_state name="close" group="stretch_gripper">
+        <joint name="joint_gripper_finger_left" value="0"/>
+        <joint name="joint_gripper_finger_right" value="0"/>
+    </group_state>
+
+    <!-- <group_state name="test" group="stretch_base_arm">
         <joint name="joint_arm_l0" value="0"/>
         <joint name="joint_arm_l1" value="0"/>
         <joint name="joint_arm_l2" value="0"/>
@@ -71,9 +118,17 @@
         <joint name="joint_wrist_pitch" value="0"/>
         <joint name="joint_wrist_roll" value="0"/>
         <joint name="joint_wrist_yaw" value="0"/>
-    </group_state>
+    </group_state> -->
+
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="stretch_gripper" parent_link="link_wrist_roll" group="stretch_gripper" parent_group="stretch_arm"/>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="position" type="planar" parent_frame="world" child_link="base_link"/>
+    <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+    
+    <!--OLD Virtual Joint-->
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <!-- <virtual_joint name="position" type="planar" parent_frame="world" child_link="base_link"/> -->
+    
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_imu" link2="base_link" reason="Adjacent"/>
     <disable_collisions link1="base_imu" link2="camera_link" reason="Never"/>

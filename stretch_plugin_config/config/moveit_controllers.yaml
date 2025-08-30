@@ -4,42 +4,13 @@ moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControll
 
 moveit_simple_controller_manager:
   controller_names:
-    # - stretch_arm_controller
-    # - stretch_base_controller
-    # - stretch_base_arm_controller
-    - stretch_controller
+    - stretch_arm_controller
+    - stretch_base_controller
+    - stretch_head_controller
+    - stretch_gripper_controller
 
-  # stretch_arm_controller:
-  #   type: FollowJointTrajectory
-  #   joints:
-  #     - joint_lift
-  #     - joint_arm_l3
-  #     - joint_arm_l2
-  #     - joint_arm_l1
-  #     - joint_arm_l0
-  #     - joint_wrist_yaw
-  #     - joint_wrist_pitch
-  #     - joint_wrist_roll
-  #   action_ns: follow_joint_trajectory
-  #   default: true
-  # stretch_base_controller:
-  #   type: FollowJointTrajectory
-  #   joints:
-  #     - joint_left_wheel
-  #     - joint_right_wheel
-  #   action_ns: follow_joint_trajectory
-  #   default: true
-  # stretch_base_arm_controller:
-  #   type: FollowJointTrajectory
-  #   joints:
-  #     - joint_left_wheel
-  #     - joint_right_wheel
-  #   action_ns: follow_joint_trajectory
-  #   default: true
-
-
-
-  stretch_controller:
+# ARM CONTROLLER
+  stretch_arm_controller:
     type: FollowJointTrajectory
     joints:
       - joint_lift
@@ -50,7 +21,34 @@ moveit_simple_controller_manager:
       - joint_wrist_yaw
       - joint_wrist_pitch
       - joint_wrist_roll
+    action_ns: follow_joint_trajectory
+    default: true
+
+# BASE CONTROLLER
+  stretch_base_controller:
+    type: FollowJointTrajectory
+    joints:
       - joint_left_wheel
       - joint_right_wheel
     action_ns: follow_joint_trajectory
     default: true
+
+# HEAD CAMERA CONTROLLER
+  stretch_head_controller:
+    action_ns: follow_joint_trajectory
+    default: true
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_head_pan
+      - joint_head_tilt
+
+# GRIPPER CONTROLLER
+  stretch_gripper_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_gripper_finger_left
+      - joint_gripper_finger_right

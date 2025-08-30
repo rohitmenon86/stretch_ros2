@@ -81,10 +81,10 @@ def generate_launch_description():
         arguments=["stretch_arm_controller", "--controller-manager", "/controller_manager"],
     )
 
-    stretch_base_arm_controller_spawner = Node(
+    stretch_head_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["stretch_base_arm_controller", "--controller-manager", "/controller_manager"],
+        arguments=["stretch_head_controller", "--controller-manager", "/controller_manager"],
     )
 
     stretch_base_controller_spawner = Node(
@@ -93,10 +93,10 @@ def generate_launch_description():
         arguments=["stretch_base_controller", "--controller-manager", "/controller_manager"],
     )
 
-    stretch_controller_spawner = Node(
+    stretch_gripper_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["stretch_controller", "--controller-manager", "/controller_manager"],
+        arguments=["stretch_gripper_controller", "--controller-manager", "/controller_manager"],
     )
 
     # Database server node if required
@@ -131,7 +131,10 @@ def generate_launch_description():
             ros2_control_node,
             mongodb_server_node,
             joint_state_broadcaster_spawner,
-            stretch_controller_spawner,
+            stretch_arm_controller_spawner,
+            stretch_base_controller_spawner,
+            stretch_head_controller_spawner,
+            stretch_gripper_controller_spawner,
             # stretch_arm_controller_spawner,
             # stretch_base_arm_controller_spawner,
             # stretch_base_controller_spawner,

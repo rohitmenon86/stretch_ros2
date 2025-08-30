@@ -8,6 +8,7 @@
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
                 <plugin>mock_components/GenericSystem</plugin>
             </hardware>
+            <!-- ARM JOINTS-->
             <joint name="joint_lift">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -64,6 +65,8 @@
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
+
+            <!-- BASE JOINTS -->
             <joint name="joint_left_wheel">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -75,6 +78,38 @@
                 <command_interface name="position"/>
                 <state_interface name="position">
                   <param name="initial_value">${initial_positions['joint_right_wheel']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+
+            <!-- HEAD JOINTS -->
+            <joint name="joint_head_pan">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint_head_pan']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint_head_tilt">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint_head_tilt']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+
+            <!-- GRIPPER JOINTS -->
+            <joint name="joint_gripper_finger_left">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint_gripper_finger_left']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint_gripper_finger_right">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['joint_gripper_finger_right']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
