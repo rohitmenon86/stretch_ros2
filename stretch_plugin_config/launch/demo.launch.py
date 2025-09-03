@@ -26,7 +26,7 @@ def generate_launch_description():
     rviz_base = os.path.join(
         get_package_share_directory("stretch_plugin_config"),
         "config",
-        "moveit.rviz"
+        "moveit_tools.rviz"
     )
 
     rviz_node = Node(
@@ -41,6 +41,13 @@ def generate_launch_description():
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
         ],
+    )
+
+    rviz_visual_tools_node = Node(
+        package="rviz_visual_tools",
+        executable="rviz_visual_tools_demo",
+        name="rviz_visual_tools",
+        output="screen"
     )
 
     # Robot state publisher
@@ -135,6 +142,7 @@ def generate_launch_description():
             stretch_base_controller_spawner,
             stretch_head_controller_spawner,
             stretch_gripper_controller_spawner,
+            # rviz_visual_tools_node,
             # stretch_arm_controller_spawner,
             # stretch_base_arm_controller_spawner,
             # stretch_base_controller_spawner,

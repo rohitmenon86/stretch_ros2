@@ -34,7 +34,7 @@
     <group name="stretch_base_arm">
         <group name="stretch_arm"/>
         <group name="stretch_base"/>
-        <group name="stretch_head"/>
+        <!-- <group name="stretch_head"/> -->
         <group name="stretch_gripper"/>
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
